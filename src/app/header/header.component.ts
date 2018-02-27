@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 
 @Component(
   {
@@ -9,5 +9,11 @@ import {Component} from '@angular/core';
 )
 
 export class HeaderComponent {
+  @Output() menuSelection = new EventEmitter<string>();
 
+  onMenuSelection(selection: string) {
+    console.log('HeaderComponent.onMenuSelection(): ' + selection);
+    this.menuSelection.emit(selection);
+
+  }
 }
